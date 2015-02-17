@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en-us">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>Generate cross-stitch patterns from any image.</title>
+        <link rel="stylesheet" type="text/css" href="CSS/Screen.min.css" />
+        <link rel="stylesheet" type="text/css" href="CSS/jquery-ui-1.8.16.css" />
+        <script type="text/javascript" src="Javascript/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="Javascript/jquery-slider-1.8.16.min.js"></script>
+        <script type="text/javascript" src="Javascript/StepCounter.min.js"></script>
+        <script type="text/javascript" src="Javascript/XStitch.min.js"></script>
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-9531182-3']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+
+    </head>
+    <body>
+        <div id="Wrapper">
+            <div id="Heading">
+                <img src="Images/Logo.png" alt="xstitch" />
+            </div>
+            <div id="Content">
+                <h2>Generate cross-stitch patterns from any image.</h2>
+                
+                <div id="Status" class="Hidden"></div>
+                
+                <div class="Step" id="ChoosePictureStep">
+                    <div class="Number">1</div> 
+                    <h3 class="StepTitle">Choose a picture.</h3>
+                    <div class="Clear"></div>
+                    
+                    <div class="StepContent">
+                        <div>
+                            <input class="Left" type="file" id="Image" name="Image" />
+                            <input value="http://xstitch.zachrattner.com/Images/BeachCliff.jpg" placeholder="http://www.example.com/image.png" class="Left" type="text" id="ImagePath" />
+                            <div class="Clear"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="Step" id="SetLimitsStep">
+                    <div class="Number">2</div> 
+                    <h3 class="StepTitle">Set the limits.</h3>
+                    <div class="Clear"></div>
+                    
+                    <div class="StepContent">
+                        <div>
+                            Maximum of
+                            <input type="text" value="200" id="Width" maxlength="3" />
+                            stitches wide by 
+                            <input type="text" value="200" id="Height" maxlength="3" /> tall 
+                        </div>
+                        
+                        <div class="HzSep"></div>
+                    
+                        <div id="ColorSliderWrapper">
+                            <div id="Few">Few</div>
+                            <div id="Colors"></div>
+                            <div id="Many">Many Colors</div>
+                            <div class="Clear"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="Step" id="MakePreviewStep">
+                    <div class="Number">3</div> 
+                    <h3 class="StepTitle">See how it will look.</h3>
+                    <div class="Clear"></div>
+                    
+                    <div class="StepContent">
+                        <div id="PreviewButton">Make Preview</div>
+                        <div id="PreviewStepWrapper"></div>
+                    </div>
+                </div>
+                
+                <div class="Step Hidden" id="PreviewStep">                    
+                    <div id="Preview"></div>
+                    <div id="Table"></div>
+                </div>
+                
+                <div class="Step Hidden" id="GenerateStep">
+                    <div class="Number">4</div> 
+                    <h3 class="StepTitle">Get the pattern.</h3>
+                    <div class="Clear"></div>
+                    
+                    <div class="StepContent">
+                        <div id="PatternButton">Get it</div>
+                        <div id="PatternStepWrapper"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="Footer">
+                <div class="Left">
+                    <a href="/">Home</a> &bull;
+                    <a href="HowItWorks.html">How it Works</a> &bull;
+                    <a href="OpenSource.html">Open Source</a> &bull;
+                    <a href="http://zachrattner.com/Contact.php">Contact</a>
+                </div>
+                
+                <div class="Right">
+                    Background by <a href="http://perfecthue.com/project/radar_wallpaper">Perfect Hue</a> &bull; 
+                    Everything else &copy; 2012 <a href="http://zachrattner.com">Zach Rattner</a>
+                </div>
+                
+                <div class="Clear"></div>
+            </div>
+        </div>
+    </body>
+</html>

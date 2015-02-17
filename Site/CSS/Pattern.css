@@ -1,0 +1,88 @@
+*
+{
+    font-family: Helvetica, Verdana, Tahoma, Arial, sans-serif;
+}
+
+@font-face
+{
+    font-family: FreeSerif;
+    src: url(../Fonts/FreeSerif.ttf) format("truetype");
+}
+
+table
+{
+    border-collapse: collapse;
+    display: block;
+    page-break-before: always;
+}
+
+td
+{
+    height: 12px;
+    width: 12px;
+    font-size: 8px;
+    text-align: center;
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    margin: 0;
+    padding: 0;
+}
+
+td.Header
+{
+    font-size: 10px;
+    border: none;
+}
+
+div#CoverPage
+{
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 300px;
+}
+
+div#ThreadWrapper
+{
+    width: 100%;
+    text-align: center;
+    page-break-before: always;
+}
+
+table#Thread
+{
+    page-break-before: avoid;
+}
+
+table#Thread tr td
+{
+    font-size: 20px;
+    border: none;
+}
+
+table#Thread tr td.Symbol
+{
+    font-family: FreeSerif;
+    padding: 3px;
+    text-align: right;
+    border-left: 1px solid #000;
+}
+
+table#Thread tr td.Code
+{
+    text-align: left;
+    padding: 3px 5px;
+    border-right: 1px solid #000;
+}
+
+img
+{
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 10px;
+    width: 10px;
+    position: relative;
+    top: 1px;
+    left: 1px;
+}

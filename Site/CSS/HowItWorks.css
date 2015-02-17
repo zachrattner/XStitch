@@ -1,0 +1,118 @@
+*
+{
+    font-family: Helvetica, Tahoma, Verdana, Arial, sans-serif;
+}
+
+p.Caption
+{
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    font-size: 14px;
+}
+
+
+div.Center
+{
+    margin: 10px 0;
+}
+
+p.Center,
+div.Center
+{
+    text-align: center;
+}
+
+div.Initial
+{
+    margin-right: 10px;
+}
+
+div.ColorEquation
+{
+    width: 160px;
+    margin: 0 auto;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+div.ColorPoint
+{
+    width: 300px;
+    margin: 0 auto;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+div.ColorEquation div.Text,
+div.ColorPoint div.Text
+{
+    float: left;
+    margin: 2px;
+}
+
+div.ColorEquation div.Color,
+div.ColorPoint div.Color
+{
+    height: 32px;
+    width: 32px;
+    border: 2px solid #000;
+    float: left;
+    border-radius: 6px;
+    margin: 0 2px;
+}
+
+div.ColorEquation div.Color.Red
+{
+    background-color: #f00;
+}
+
+div.ColorEquation div.Color.Green
+{
+    background-color: #0f0;
+}
+
+div.ColorEquation div.Color.Yellow
+{
+    background-color: #ff0;
+}
+
+div.ColorPoint div.Color.Black
+{
+    background-color: #000;
+}
+
+div.ColorPoint div.Color.Gray
+{
+    background-color: rgb(100, 100, 100);
+}
+
+div.ColorPoint div.Color.Pink
+{
+    background-color: rgb(210, 11, 30);
+}
+
+div.ColorPoint div.Color.Flesh
+{
+    background-color: rgb(247, 224, 210);
+}
+
+div.ColorPoint div.Color.Green
+{
+    background-color: rgb(139, 174, 70);
+}
+
+div.ColorPoint div.Text span.Red
+{
+    color: #d91f1f;
+}
+
+div.ColorPoint div.Text span.Green
+{
+    color: #25d018;
+}
+
+div.ColorPoint div.Text span.Blue
+{
+    color: #0f47e9;
+}

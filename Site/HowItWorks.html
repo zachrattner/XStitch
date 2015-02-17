@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en-us">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>Generate cross-stitch patterns from any image.</title>
+        <link rel="stylesheet" type="text/css" href="CSS/Screen.min.css" />
+        <link rel="stylesheet" type="text/css" href="CSS/HowItWorks.min.css" />
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-9531182-3']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+
+    </head>
+    <body>
+        <div id="Wrapper">
+            <div id="Heading">
+                <img src="Images/Logo.png" alt="xstitch" />
+            </div>
+            <div id="Content">
+                <h2>Here&#39;s how it works.</h2>
+                
+                <div class="Step">
+                    <div class="Number">1</div> 
+                    <h3 class="StepTitle">Format the image.</h3>
+                    <div class="Clear"></div>
+                    
+                    <div class="StepContent">
+                        <p>
+                           Images can be represented on a computer by a two-dimensional grid. Each 
+                           cell in this grid is called a <q>pixel</q>, and a pixel is one distinct
+                           color. The following image shows a photo, and zooming in shows the
+                           individual pixels:
+                        </p>
+                        
+                        <p class="Center">
+                            <img src="Images/PixelZoom.png" alt="Example of a photograph enlarged to show pixels" />
+                        </p>
+                        
+                        <p>
+                            Photographs tend to contain many distinct colors. Most digital cameras
+                            take pictures in JPG form, which can contain millions of distinct colors 
+                            each. The sheer quantity of colors poses a problem when making
+                            cross-stitch patterns. If a pattern is created that uses millions of 
+                            distinct colors, that means millions of colors of thread that need to 
+                            be bought. To solve this problem, images are scaled and compressed.
+                        </p>
+                        
+                        <p>
+                            Scaling is the simpler of the two steps, and it is performed first. This 
+                            program treats one pixel as one stitch. So, if a pattern is supposed to be 
+                            300 stitches wide and the provided image is 1,000 pixels wide, the image 
+                            must be scaled down to fit the boundaries.
+                        </p>
+                        
+                        <p>
+                            Once the image is scaled down, the number of colors in the image needs 
+                            to be reduced. The more the image is compressed, the fewer colors it 
+                            uses. Color reduction is something of an art, since there&#39;s 
+                            no scientific way to say when an image has been reduced too much. The 
+                            only way to tell that an image has been reduced too much is that it 
+                            starts to look bad. An example should help illustrate this point:
+                        </p>
+                        
+                        <div class="Center">
+                            <div class="Left Initial">
+                                <img src="Images/PhotoFull.png" alt="Photo with no reduction" />
+                                <p class="Caption">Uncompressed Photo</p>
+                            </div>
+                            
+                            <div class="Left">
+                                <img src="Images/Photo64.png" alt="Reduced to 64 colors" />
+                                <p class="Caption">Reduced to 64 Colors</p>
+                            </div>
+                            
+                            <div class="Clear"></div>
+                        </div>
+    
+                        <div class="Center">
+                            <div class="Left Initial">
+                                <img src="Images/Photo32.png" alt="Reduced to 32 colors" />
+                                <p class="Caption">Reduced to 32 Colors</p>
+                            </div>
+                            
+                            <div class="Left">
+                                <img src="Images/Photo16.png" alt="Reduced to 16 colors" />
+                                <p class="Caption">Reduced to 16 Colors</p>
+                            </div>
+                            
+                            <div class="Clear"></div>
+                        </div>
+                        
+                        <p>
+                            Somewhere between 16 and 32 colors, the image starts to look noticeably
+                            worse than it should be. A cross-stitch pattern made from the 16-color 
+                            image probably wouldn&#39;t look very good. Since there really is no
+                            way to tell how much compression is too much without looking at the 
+                            image, the program takes the compression level as an input so it can
+                            be tweaked.
+                        </p>
+                        
+                    </div>
+                </div>
+                
+                <div class="Step">
+                    <div class="Number">2</div> 
+                    <h3 class="StepTitle">Round to the nearest color.</h3>
+                    <div class="Clear"></div>
+                    
+                    <div class="StepContent">
+                        <p>
+                            Since pixels are cells of light, their colors are controlled by adjusting
+                            the intensity of red, green, and blue light. If no amount of any color 
+                            is supplied, the resulting color is black. If a full amount of all three
+                            colors are provided, then the resulting color is white. All other colors
+                            lie somewhere in between.
+                        </p>
+                        
+                        <p>
+                            Since all the colors added together make white, this color model is known
+                            as <q>additive</q> or <q>RGB</q> (for <q>red, green, blue</q>). The
+                            additive color model is illustrated below:
+                        </p>
+                        
+                        <p class="Center">
+                            <img src="Images/RGB.png" alt="Additive color model" />
+                        </p>
+                        
+                        <p>
+                            This image gives some insight into how other colors are made. For
+                            example:  
+                        </p>
+                        
+                        <div>
+                            <div class="ColorEquation">
+                                <div class="Color Red"></div>
+                                <div class="Text">+</div>
+                                <div class="Color Green"></div>
+                                <div class="Text">=</div>
+                                <div class="Color Yellow"></div>
+                                <div class="Clear"></div>
+                            </div>
+                        </div>
+                        
+                        <p>
+                            Most modern web browsers allow for 256 steps between a color being
+                            entirely off and entirely on. This resolution allows for a total of 
+                            256<sup>3</sup> = 16,777,216 unique colors to be displayed. It might 
+                            not be immediately apparent yet that <i>every single color</i> 
+                            can be created by mixing red, green, and blue light. To get there, it 
+                            can be helpful to introduce the concept of the <q>RGB cube</q>:
+                        </p>
+                        
+                        <p class="Center">
+                            <img src="Images/RGBCube.png" alt="RGB Cube" />
+                        </p>
+                        
+                        <p>
+                            Colors are represented in browsers by their position on the RGB cube. 
+                            For example, black contains none of any channel, so it can be 
+                            represented like so:
+                        </p>
+                        
+                        <div class="Center">
+                            <div class="ColorPoint">
+                                <div class="Color Black"></div>
+                                <div class="Text">=</div>
+                                <div class="Text">rgb(<span class="Red">0</span>,
+                                <span class="Green">0</span>,
+                                <span class="Blue">0</span>)</div>
+                                <div class="Clear"></div>
+                            </div>
+                        </div>
+                        
+                        <p>
+                            Here are some more examples:
+                        </p>
+                        
+                        <div class="Center">
+                            <div class="ColorPoint">
+                                <div class="Color Gray"></div>
+                                <div class="Text">=</div>
+                                <div class="Text">rgb(<span class="Red">100</span>,
+                                <span class="Green">100</span>,
+                                <span class="Blue">100</span>)</div>
+                                <div class="Clear"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="Center">
+                            <div class="ColorPoint">
+                                <div class="Color Pink"></div>
+                                <div class="Text">=</div>
+                                <div class="Text">rgb(<span class="Red">210</span>,
+                                <span class="Green">11</span>,
+                                <span class="Blue">30</span>)</div>
+                                <div class="Clear"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="Center">
+                            <div class="ColorPoint">
+                                <div class="Color Flesh"></div>
+                                <div class="Text">=</div>
+                                <div class="Text">rgb(<span class="Red">247</span>,
+                                <span class="Green">224</span>,
+                                <span class="Blue">210</span>)</div>
+                                <div class="Clear"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="Center">
+                            <div class="ColorPoint">
+                                <div class="Color Green"></div>
+                                <div class="Text">=</div>
+                                <div class="Text">rgb(<span class="Red">139</span>,
+                                <span class="Green">174</span>,
+                                <span class="Blue">70</span>)</div>
+                                <div class="Clear"></div>
+                            </div>
+                        </div>
+                        
+                        <p>
+                            Once the image has been resized and compressed, each color is analyzed.
+                            Craft stores only carry certain colors of thread, so XStitch has an 
+                            internal database of 425 DMC&reg; thread colors and their 
+                            corresponding RGB values.
+                        </p>
+                        
+                        <p>
+                            These DMC&reg; colors constitute a set of points over the RGB cube. While
+                            colors from images can be from any point on the cube, only DMC&reg; points 
+                            can be included in the final pattern. So, each color in the image must be 
+                            <q>rounded</q> to the nearest DMC&reg; color. The following exaggerated 
+                            example shows a point being compared to three neighboring DMC&reg; colors.
+                            The point yielding the minimum distance is chosen to replace the color.
+                        </p>
+                        
+                        <p class="Center">
+                            <img src="Images/Round.png" alt="Round to the nearest color" />
+                        </p>
+                        
+                        <p>
+                            The distance between two points  (x, y, z) and (x<sub>0</sub>, y<sub>0</sub>, z<sub>0</sub>) 
+                            in three-dimensional space can be calculated by the following equation:
+                        </p>
+                        
+                        <p class="Center">
+                            <img src="Images/Distance.png" alt="Three-dimensional distance equation" />
+                        </p>
+                        
+                        <p>
+                            By replacing each color in the image with its closest DMC&reg; color, 
+                            a cross-stitch pattern can be created that uses only valid colors.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="Step">
+                    <div class="Number">3</div> 
+                    <h3 class="StepTitle">Generate the pattern.</h3>
+                    <div class="Clear"></div>
+                    
+                    <div class="StepContent">
+                        <p>
+                            Once the image has been resized, compressed, and each color has been
+                            replaced with its closest DMC&reg; color, a pattern can be generated. 
+                            Images are split into chunks of 50x50-stitch segments, and each segment 
+                            is placed onto a single page. The last row and the last column may contain 
+                            less than 50 stitches if the image dimensions are not multiples of 50. 
+                            The pages are ordered <q>for each row, for each column</q>, as illustrated below:
+                        </p>
+                        
+                        <p class="Caption">
+                            <img src="Images/Pagination.png" alt="Pagination" />
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="Footer">
+                <div class="Left">
+                    <a href="/">Home</a> &bull;
+                    <a href="HowItWorks.html">How it Works</a> &bull;
+                    <a href="OpenSource.html">Open Source</a> &bull;
+                    <a href="http://zachrattner.com/Contact.php">Contact</a>
+                </div>
+                
+                <div class="Right">
+                    Background by <a href="http://perfecthue.com/project/radar_wallpaper">Perfect Hue</a> &bull; 
+                    Everything else &copy; 2012 <a href="http://zachrattner.com">Zach Rattner</a>
+                </div>
+                
+                <div class="Clear"></div>
+            </div>
+        </div>
+    </body>
+</html>
